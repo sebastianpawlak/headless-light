@@ -1,9 +1,10 @@
-export default async (req, res) => {
-    await new Promise(resolve => {
-      setTimeout(() => {
-        resolve()
-      }, 20000);
-    })
-  
-    res.end('Test')
-  }
+function Home({ stars }) {
+    return <div>Test app: {stars}</div>
+}
+
+Home.getInitialProps = async (ctx) => {
+    await new Promise(r => setTimeout(r, 20000))
+    return { stars: 20000 }
+}
+
+export default Home;
